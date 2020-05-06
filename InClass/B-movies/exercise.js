@@ -59,9 +59,40 @@ var movies = [
 ];
 
 // create showMovies function
+function showMovies() {
+  let movieList = document.querySelector("#all-movies");
+  let moviesTotal = document.querySelector("#movies-number");
 
+  for (var i = 0; i < movies.length; i++) {
+    let movie = movies[i];
+    let elementP = document.createElement("p");
+    movieList.appendChild(elementP);
+    elementP.innerText = movie.title + " - " + movie.director;
+    moviesTotal.innerText = movies.length;
+  }
+}
+setTimeout(showMovies, 1000);
 
 // create a new movie object for your favorite movie
 
+const myMovies = {
+  title: "Shawshank Redemption",
+  director: "Frank Darabont",
+  type: "drama",
+  haveWatched: "true",
+};
 
 // create addMovies function
+
+function addMovie() {
+  let movieList = document.querySelector("#all-movies");
+  var newMovie = document.createElement("p");
+  newMovie.innerText = myMovies.title + " - " + myMovies.director;
+  movieList.appendChild(newMovie);
+}
+
+//adding directly to array
+function addMyMovie() {
+  movies.push(myMovies);
+}
+setTimeout(addMyMovie, 999);
