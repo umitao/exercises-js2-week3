@@ -59,10 +59,10 @@ var movies = [
 ];
 
 // create showMovies function
-function showMovies() {
-  let movieList = document.querySelector("#all-movies");
-  let moviesTotal = document.querySelector("#movies-number");
+var movieList = document.querySelector("#all-movies");
+var moviesTotal = document.querySelector("#movies-number");
 
+function showMovies() {
   for (var i = 0; i < movies.length; i++) {
     let movie = movies[i];
     let elementP = document.createElement("p");
@@ -83,7 +83,6 @@ const myMovies = {
 };
 
 // create addMovies function
-
 function addMovie() {
   let movieList = document.querySelector("#all-movies");
   var newMovie = document.createElement("p");
@@ -98,25 +97,24 @@ function addMyMovie() {
 setTimeout(addMyMovie, 999);
 
 //add input movie
-const customMovie = [
-  {
-    title: "",
-    director: "",
-    type: "",
-    haveWatched: "",
-  },
-];
+var addMovieButton = document.querySelector("#addNewMovie");
+addMovieButton.addEventListener("click", newMovie);
+var newTitle = document.querySelector("#title");
+var newDirector = document.querySelector("#director");
+var newType = document.querySelector("#type");
+var newHaveWatched = document.querySelector("#haveWatched");
 
 function newMovie() {
   var newInput = {
-    title: document.querySelector("#title").value,
-    director: document.querySelector("#director").value,
-    type: document.querySelector("#type").value,
-    haveWatched: document.querySelector("#haveWatched").value,
+    title: newTitle.value,
+    director: newDirector.value,
+    type: newType.value,
+    haveWatched: newHaveWatched.value,
   };
-  var secondDiv = document.querySelector("#secondary");
+
   var movieP = document.createElement("p");
-  customMovie.push(newInput);
-  secondDiv.appendChild(movieP);
-  movieP.innerText = customMovie.title + customMovie.director;
+  movies.push(newInput);
+  movieList.appendChild(movieP);
+  movieP.innerText = newInput.title + " - " + newInput.director;
+  event.preventDefault();
 }
