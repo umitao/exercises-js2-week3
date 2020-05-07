@@ -96,3 +96,27 @@ function addMyMovie() {
   movies.push(myMovies);
 }
 setTimeout(addMyMovie, 999);
+
+//add input movie
+const customMovie = [
+  {
+    title: "",
+    director: "",
+    type: "",
+    haveWatched: "",
+  },
+];
+
+function newMovie() {
+  var newInput = {
+    title: document.querySelector("#title").value,
+    director: document.querySelector("#director").value,
+    type: document.querySelector("#type").value,
+    haveWatched: document.querySelector("#haveWatched").value,
+  };
+  var secondDiv = document.querySelector("#secondary");
+  var movieP = document.createElement("p");
+  customMovie.push(newInput);
+  secondDiv.appendChild(movieP);
+  movieP.innerText = customMovie.title + customMovie.director;
+}
