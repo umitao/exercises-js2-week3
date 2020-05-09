@@ -1,4 +1,17 @@
-function setAlarm() {}
+function setAlarm() {
+  var timeRemaining = document.querySelector("#timeRemaining");
+  var alarmSet = document.querySelector("#alarmSet");
+  timeRemaining.innerText = alarmSet.value;
+  //console.log(typeof setTimer.value);
+  var integer = Number.parseInt(timeRemaining.innerText, 10);
+  //console.log(typeof integer);
+  var countdown = setInterval(function () {
+    integer--;
+    if (integer == 0) {
+      clearInterval(countdown);
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
