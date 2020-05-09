@@ -1,14 +1,15 @@
 function setAlarm() {
-  var timeRemaining = document.querySelector("#timeRemaining");
   var alarmSet = document.querySelector("#alarmSet");
-  timeRemaining.innerText = alarmSet.value;
+  var integer = document.querySelector("#timeRemaining");
+
+  integer.innerText = alarmSet.value;
   //console.log(typeof setTimer.value);
-  var integer = Number.parseInt(timeRemaining.innerText, 10);
+  //var integer = parseInt(timeRemaining.innerText, 10);
   //console.log(typeof integer);
-  var countdown = setInterval(function () {
-    integer--;
-    if (integer == 0) {
-      clearInterval(countdown);
+  var timer = setInterval(function () {
+    integer.innerText--;
+    if (integer === 0) {
+      clearInterval(timer);
     }
   }, 1000);
 }
